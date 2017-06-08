@@ -18,14 +18,14 @@
 <body>
 	<h1>crossdomain using dojox.io.windowName</h1>
 	<button id='get_resource'>Click to get resource</button>
-	<p id='resource_holder'></p>
+	<p id='result'></p>
     <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js"></script>
 	<script>
 	dojo.require('dojox.io.windowName');
 	dojo.config.dojoCallbackUrl = 'blank.html';
 	dojo.addOnLoad(function () {
 		var button = dojo.byId('get_resource'),
-			 holder = dojo.byId('resource_holder'),
+			 holder = dojo.byId('result'),
 
 			 fetchData = function(){
 				holder.innerHTML = '';

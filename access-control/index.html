@@ -18,11 +18,11 @@
 <body>
 	<h1>crossdomain using Access-Control-Allow-Origin</h1>
 	<button id='get_resource'>Click to get resource</button>
-	<p id='resource_holder'></p>
+	<p id='result'></p>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
 	<script>
 	$('#get_resource').click(function(){
-		var $holder =$('#resource_holder'),
+		var $holder =$('#result'),
 			 url = 'http://www.b.com/crossdomain/access-control/resouce.php';
 		if(window.XDomainRequest){
 			var xdr = new XDomainRequest();

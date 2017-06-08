@@ -17,18 +17,18 @@
 </head>
 <body>
 	<h1>crossdomain using Server Proxy (part 2: POST)</h1>
-	<button id='get_resource'>Click to get resource</button>
-	<p id='resource_holder'></p>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+	<input type="text" id="word">
+	<button id='get_resource'>Click to encrypt word</button>
+	<p id='result'>123</p>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 	<script>
 	$('#get_resource').click(function(){
-		$.post('http://www.a.com/crossdomain/server-proxy/proxy.php',
+		$.post('server-proxy/proxy.do',
 			{
-				resource: 'http://www.b.com/crossdomain/server-proxy/resource.php',
-				from: 'www.a.com'
+				word: $("#word").val(),
 			},
 			function(data){
-				$('#resource_holder').html(data);
+				$('#result').html(data);
 			}
 		);
 	});

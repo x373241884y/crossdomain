@@ -18,12 +18,12 @@
 <body>
 	<h1>crossdomain using window.name</h1>
 	<button id='get_resource'>Click to get resource</button>
-	<p id='resource_holder'></p>
+	<p id='result'></p>
     <script type="text/javascript">
 (function () {
    var proxy = 'blank.html',
         button = document.getElementById('get_resource'),
-		holder = document.getElementById('resource_holder')
+		holder = document.getElementById('result')
         body = document.body || document.getElementsByTagName('body')[0],
 		getPageData = function(url, callback){
 			var iframe = document.createElement('iframe'),

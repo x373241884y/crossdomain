@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>crossdomain | JSONP</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<style>
+		body, button {
+			font-family: Verdana, Arial;
+			color: #333;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+<h1>crossdomain using JSONP</h1>
+<input type="text" id="word">
+<button id='get_resource'>Click to encrypt word</button>
+<p id='result'></p>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+	(function () {
+		var getJSONP = function (url, data, callbackName) {
+				var head = document.getElementsByTagName("head")[0],
+					url = url + '?callback=' + callbackName,
+					script = document.createElement("script");
+				for(var key in data){
+					url += "&" + key + "=" + data[key];
+				}
+				script.src = url;
+				script.charset = "utf-8";
+
+				script.onload = script.onreadystatechange = function () {
+					if (!this.readyState || this.readyState == "loaded" ||
+						this.readyState == "complete") {
+						setTimeout(function () {
+							head.removeChild(script);
+						}, 50);
+					}
+				};
+				head.appendChild(script);
+			},
+			holder = document.getElementById('result'),
+			button = document.getElementById('get_resource');
+
+		window.handleJSONP = function (data) {
+			holder.innerHTML = data;
+		};
+
+		button.onclick = function () {
+			holder.innerHTML = '';
+			getJSONP('http://127.0.0.1:9000/otherdomain/encrypt.do', {word: $("#word").val()}, 'handleJSONP');
+		}
+	})();
+</script>
+</body>
+</html>

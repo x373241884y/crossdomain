@@ -18,7 +18,7 @@
 <body>
 	<h1>crossdomain using Flash URLLoader</h1>
 	<button id='get_resource'>Click to get resource</button>
-	<p id='resource_holder'></p>
+	<p id='result'></p>
 	<script src='http://ajax.googleapis.com/ajax/libs/yui/2.8.1/build/yuiloader/yuiloader-min.js'></script>
 	<script>
 	var YUIReady = function(){
@@ -26,7 +26,7 @@
 				  Event =YAHOO.util.Event,
 				  Dom = YAHOO.util.Dom,
 				  button = Dom.get('get_resource'),
-				  holder = Dom.get('resource_holder'),
+				  holder = Dom.get('result'),
 				  url = 'http://www.b.com/crossdomain/flash-urlloader/resource.php',
 				  callback = {
 					  success : function(e, d){

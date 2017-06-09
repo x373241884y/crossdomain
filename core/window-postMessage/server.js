@@ -11,7 +11,6 @@ console.log('mainApp listen on:http://127.0.0.1:3000');
 
 //==================================server second start==================================
 var otherApp = express();
-otherApp.use(express.static(path.join(__dirname, 'static2')));
 otherApp.get('/iframe.html', function (req, res) {
 	res.send(fs.readFileSync(path.join(__dirname, 'iframe.html'), 'utf8'));
 });

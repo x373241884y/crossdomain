@@ -7,14 +7,16 @@
 </head>
 <body>
 <h3>crossdomain using JSONP</h3>
-<p id="result">requesting resource from http://127.0.0.1:9000/</p>
+<pre ><code id="result">requesting resource from http://127.0.0.1:9000/</code></pre>
 <script type="text/javascript">
 
 	function _handleJSON(data) {
 		console.log(data);
-		document.getElementById("result").innerHTML = data;
+		document.getElementById("result").innerHTML = JSON.stringify(data,null,4);
 	}
 </script>
 <script src="http://127.0.0.1:9000/resource.do?callback=_handleJSON"></script>
+<!--use github api response jsonp -->
+<!--<script src="https://api.github.com/search/repositories?q=xxhblog&order=desc&limit=10&callback=_handleJSON"></script>-->
 </body>
 </html>

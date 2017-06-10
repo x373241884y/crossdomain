@@ -13,7 +13,7 @@ var otherApp = express();
 
 otherApp.get('/resource.do', function (req, res) {
 	var callbackName=req.query.callback;
-	res.end(callbackName + "(\'Hello,HaHa,I am from http://127.0.0.1:9000/resource.do\');");
+	res.end(callbackName + "({info:\'Hello,HaHa,I am from http://127.0.0.1:9000/resource.do\'});");
 });
 
 otherApp.listen(9000);

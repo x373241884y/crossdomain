@@ -2,36 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>crossdomain | Server Proxy (part1: GET)</title>
+	<title>crossdomain | Server Proxy</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<style>
-	body, button{
-		font-family: Verdana, Arial;
-		color: #333;
-	}
-	h1{
-		text-align:center;
-		font-size:24px;
-	}
-	</style>
 </head>
 <body>
-	<h1>crossdomain using Server Proxy (part1: GET)</h1>
-	<input type="text" id="word">
-	<button id='get_resource'>Click to encrypt word</button>
-	<p id='result'></p>
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-	<script>
-	$('#get_resource').click(function(){
-		$.get('server-proxy/proxy.do',
-			{
-				word: $("#word").val(),
-			},
-			function(data){
-				$('#result').html(data);
-			}
-		);
-	});
-	</script>
+<h3>crossdomain using Server Proxy</h3>
+<p id="result">requesting resource from http://127.0.0.1:9000/</p>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+	$.get('server-proxy/proxy.do', {}, function (data) {
+			$('#result').html(data);
+		}
+	);
+</script>
 </body>
 </html>

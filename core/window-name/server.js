@@ -12,8 +12,7 @@ console.log('mainApp listen on:http://127.0.0.1:3000');
 var otherApp = express();
 
 otherApp.get('/resource.do', function (req, res) {
-	var callbackName=req.query.callback;
-	res.end(callbackName + "(\'Hello,HaHa,I am from http://127.0.0.1:9000/resource.do\');");
+	res.end("<script>window.name='Hello,HaHa,I am from http://127.0.0.1:9000/resource.do';</script>");
 });
 
 otherApp.listen(9000);

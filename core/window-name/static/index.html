@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>$Title$</title>
+	<meta charset="utf-8">
+	<title>crossdomain | window name</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 </head>
 <body>
-$END$
+<h3>crossdomain using window.name</h3>
+<p id="result">requesting resource from http://127.0.0.1:9000/</p>
+<iframe id="proxy" style="display: none"></iframe>
+<script type="text/javascript">
+	var iframe = document.getElementById("proxy"),state=0;
+	iframe.onload = function () {
+		if(state === 0) { //this time is other domain resource onload
+			state = 1;
+			iframe.contentWindow.location = 'blank.html'; //change src
+		} else if(state === 1) {
+			console.log(iframe.contentWindow.name);
+			document.getElementById('result').innerHTML = iframe.contentWindow.name;
+		}
+	};
+	iframe.src = "http://127.0.0.1:9000/resource.do";
+</script>
+
 </body>
 </html>

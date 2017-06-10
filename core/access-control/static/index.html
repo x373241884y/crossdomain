@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>$Title$</title>
+	<meta charset="utf-8">
+	<title>crossdomain | Access-Control-Allow-Origin</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 </head>
 <body>
-$END$
+<h3>crossdomain using Access-Control-Allow-Origin</h3>
+<p id="result">requesting resource from http://127.0.0.1:9000/</p>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+	var url = 'http://127.0.0.1:9000/resource.do',xhr;
+	if (window.XDomainRequest) {
+		xhr = new XDomainRequest();
+	} else {
+		xhr = new XMLHttpRequest();
+	}
+	xhr.open("get", url);
+	xhr.send();
+	xhr.onload = function () {
+		console.log(xhr.responseText);
+	}
+</script>
 </body>
 </html>

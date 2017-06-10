@@ -4,23 +4,14 @@
 	<meta charset="utf-8">
 	<title>crossdomain | JSONP</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<style>
-		body, button{
-			font-family: Verdana, Arial;
-			color: #333;
-		}
-		h1{
-			text-align:center;
-			font-size:24px;
-		}
-	</style>
 </head>
 <body>
-<h1>crossdomain using JSONP</h1>
+<h3>crossdomain using JSONP</h3>
 <p id="result">requesting resource from http://127.0.0.1:9000/</p>
 <script type="text/javascript">
 
 	function _handleJSON(data) {
+		console.log(data);
 		document.getElementById("result").innerHTML = data;
 	}
 </script>
